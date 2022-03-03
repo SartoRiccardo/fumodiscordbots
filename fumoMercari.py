@@ -90,10 +90,11 @@ def send_embed(embed, url):
 
 def main():
     print(datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
-    query = '東方 ふもふも ぬいぐるみ'
+    queries = data["queries"]
 
-    for item in mercari.search(query):
-        check_item(item)
+    for q in queries:
+        for item in mercari.search(q):
+            check_item(item)
 
 
 db_file = os.path.join(os.path.dirname(__file__), "fumo.db")
